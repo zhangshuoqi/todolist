@@ -8,7 +8,8 @@ from rest_framework import viewsets, filters
 from .models import User, Entry
 from .serializer import UserSerializer, EntrySerializer
 
-class index():
+def index(request):
+    return render(request,'index.html',locals())
     
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
