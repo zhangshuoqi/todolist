@@ -8,6 +8,8 @@ from rest_framework import viewsets, filters
 from .models import User, Entry
 from .serializer import UserSerializer, EntrySerializer
 
+class index():
+    
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
