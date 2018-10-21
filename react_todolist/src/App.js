@@ -11,7 +11,13 @@ const server = 'http://127.0.0.1:8000';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [], text: '',name:'',age:0 };
+    this.state = { 
+      items: [],
+      text: '',
+      data:{
+        name:'',
+        age:0 
+      }};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
@@ -52,10 +58,11 @@ class App extends React.Component {
     this.setState({
       [key]:e.target.value
     });
+    
   }
 
   async write(){
-    let data = {...this.state};
+    let data = {...this.state.data};
     console.log(data);
     let res = await axios.post('${server}/write',data);
     console.log(res);
