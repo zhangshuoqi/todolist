@@ -19,7 +19,7 @@ class Entry(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_SET, default=STATUS_DRAFT, max_length=8)
     author = models.ForeignKey(User, related_name='entries')
-class Person(modes.Model):
+class Person(models.Model):
     id = models.UUIDField(primary_key=True,default=uuid.uuid1,editable=False,null=False)
     name = models.CharField(null=False, max_length=50)
     age = models.IntegerField()
