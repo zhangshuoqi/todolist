@@ -13,6 +13,6 @@ class Entry(admin.ModelAdmin):
     pass
 
 class PersonAdmin(admin.ModelAdmin):
-    list_display = ['id','anme','age','time']
+    list_display = ['id','name','age','time']
 
 admin.site.register(Person,PersonAdmin)
