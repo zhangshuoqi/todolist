@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import User, Entry
+from .models import User, Entry, Person
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
@@ -12,3 +12,7 @@ class UserAdmin(admin.ModelAdmin):
 class Entry(admin.ModelAdmin):
     pass
 
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ['id','anme','age','time']
+
+admin.site.register(Person,PersonAdmin)

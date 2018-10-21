@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.db import models
-
+import uuid
 # Create your models here.
 
 class User(models.Model):
@@ -19,6 +19,11 @@ class Entry(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS_SET, default=STATUS_DRAFT, max_length=8)
     author = models.ForeignKey(User, related_name='entries')
+class Person(modes.Model):
+    id = models.UUIDField(primary_key=True,default=uuid.uuid1,editable=False,null=False)
+    name = models.CharField(null=False, max_length=50)
+    age = models.IntegerField()
+    time = models.DateTimeField(auto_now=True, null=False)
 
 
     
